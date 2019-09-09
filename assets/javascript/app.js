@@ -43,4 +43,34 @@ $("#submit-button").on("click", function(event) {
     // Assign found values to train information
     trainInfo.minutesAway = trainInfo.frequency - remainder;
     trainInfo.nextArrival = moment().add(trainInfo.minutesAway, "minutes").format("hh:mm A");
+
+    // Add information to firebase
+    database.ref().push({
+        trainInfo : trainInfo,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+});
+
+// Retrieve firebase data to display on the page
+database.ref().on("child_added", function(snapshot) {
+    var firebaseData = snapshot.val();
+    var tableRow = $("<tr>");
+
+    var trainName = $("<td>");
+    var trainDestination = $("<td>");
+    var trainFrequency = $("<td>");
+    var trainNextArrival = $("<td>");
+    var trainMinutesAway = $("<td>");
+
+    trainName.text(firebaseData.trainInfo.name);
+    trainDestination.text(firebaseData.trainInfo.destination);
+    trainFrequency.text(firebaseData.trainInfo.frequency);
+    trainNextArrival.text(firebaseData.trainInfo.nextArrival);
+    trainMinutesAway.text(firebaseData.trainInfo.minutesAway);
+
+    tableRow.append(trainName, trainDestination, trainFrequency, trainNextArrival, trainMinutesAway);
+    $("tbody").append(tableRow);
+
+}, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
 });
