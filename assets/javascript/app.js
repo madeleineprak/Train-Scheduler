@@ -11,7 +11,6 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
 var database = firebase.database();
 
 // Train information
@@ -24,6 +23,7 @@ var trainInfo = {
     minutesAway: 0
 }
 
+// Alows user to enter train information to store in firebase and add to table
 $("#submit-button").on("click", function(event) {
     event.preventDefault();
 
@@ -54,21 +54,28 @@ $("#submit-button").on("click", function(event) {
 // Retrieve firebase data to display on the page
 database.ref().on("child_added", function(snapshot) {
     var firebaseData = snapshot.val();
+
+    // Create a table row to display the train information
     var tableRow = $("<tr>");
 
+    // Create table data to hold the train information
     var trainName = $("<td>");
     var trainDestination = $("<td>");
     var trainFrequency = $("<td>");
     var trainNextArrival = $("<td>");
     var trainMinutesAway = $("<td>");
 
+    // Assign the train information to the respective table data
     trainName.text(firebaseData.trainInfo.name);
     trainDestination.text(firebaseData.trainInfo.destination);
     trainFrequency.text(firebaseData.trainInfo.frequency);
     trainNextArrival.text(firebaseData.trainInfo.nextArrival);
     trainMinutesAway.text(firebaseData.trainInfo.minutesAway);
 
+    // Add the table data to the table row
     tableRow.append(trainName, trainDestination, trainFrequency, trainNextArrival, trainMinutesAway);
+
+    // Add the row to the main table
     $("tbody").append(tableRow);
 
 }, function(errorObject) {

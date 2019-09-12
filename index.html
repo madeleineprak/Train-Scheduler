@@ -8,19 +8,13 @@
     <title>Train Scheduler</title>
     <!-- Reset CSS -->
     <link rel="stylesheet" href="assets/css/reset.css">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS Styling -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
-    <!-- Moment -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <!-- Font  -->
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
 </head>
 
 <body>
@@ -30,17 +24,17 @@
 
     <div class="page-content">
         <div class="card">
-            <div class="card-header">Current Train Schedule</div>
+            <div class="card-header">CURRENT TRAIN SCHEDULE</div>
             <div class="card-body">
                 <div class=" table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Train Name</th>
-                                <th scope="col">Destination</th>
-                                <th scope="col">Frequency (min)</th>
-                                <th scope="col">Next Arrival</th>
-                                <th scope="col">Minutes Away</th>
+                                <th scope="col">TRAIN NAME</th>
+                                <th scope="col">DESTINATION</th>
+                                <th scope="col">FREQUENCY (min)</th>
+                                <th scope="col">NEXT ARRIVAL</th>
+                                <th scope="col">MINUTES AWAY</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,36 +45,45 @@
         </div>
 
         <div class="card">
-            <div class="card-header">Add Train</div>
+            <div class="card-header">ADD TRAIN</div>
             <div class="card-body">
                 <form>
-                    <div class="form-group">
-                        <label for="employeeName">Train Name</label>
-                        <input type="text" class="form-control" id="name-input" aria-describedby="name"
-                            placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="role">Destination</label>
-                        <input type="text" class="form-control" id="destination-input" aria-describedby="role"
-                            placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="role">First Train Time (HH:mm - military time)</label>
-                        <input type="text" class="form-control" id="first-arrival-input" aria-describedby="date"
-                            placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="role">Frequency (min)</label>
-                        <input type="text" class="form-control" id="frequency-input" aria-describedby="rate"
-                            placeholder="">
-                    </div>
-                    <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                    <div class="row">
+                        <div class="form-group col-md-6 col-xs-12 col-sm-12">
+                            <label for="employeeName">Train Name</label>
+                            <input type="text" class="form-control" id="name-input" aria-describedby="name"
+                                placeholder="">
+                            <label for="role">Destination</label>
+                            <input type="text" class="form-control" id="destination-input" aria-describedby="role"
+                                placeholder="">
+                        </div>
+                        <div class="form-group col-md-6 col-xs-12 col-sm-12">
+                            <label for="role">First Train Time (HH:mm - military time)</label>
+                            <input type="text" class="form-control" id="first-arrival-input" aria-describedby="date"
+                                placeholder="">
+                            <label for="role">Frequency (min)</label>
+                            <input type="text" class="form-control" id="frequency-input" aria-describedby="rate"
+                                placeholder="">
+                        </div>
+                    </div class="row justify-content-center">
+                    <button id="submit-button" type="submit" class="btn btn-primary text-center">SUBMIT</button>
             </div>
+            </form>
         </div>
     </div>
     </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <!-- Moment -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <!-- Javascript -->
     <script src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>
